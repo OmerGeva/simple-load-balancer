@@ -1,0 +1,15 @@
+version: '3'  
+
+services:
+  js-client:
+    build: ./js-project
+    restart: always
+    volumes:
+      - type: bind
+        source: ./js-project
+        target: /js-project
+
+  loadbalancer:
+    build: ./loadbalancer
+    ports:
+      - "5001:5001"
